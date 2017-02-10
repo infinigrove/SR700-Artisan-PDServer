@@ -1,0 +1,3 @@
+freshroastsr700>=0.1.0
+datetime
+Pyro4
