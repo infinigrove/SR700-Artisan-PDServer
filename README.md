@@ -9,7 +9,7 @@ Please refer to OpenRoast wiki page on [installing drivers](https://github.com/R
 
 # Setting Up A Development Environment
 
-Requirements are Python3, [Artisan](https://github.com/artisan-roaster-scope/artisan/releases) (tested with v0.9.9)
+Requirements are Python3 and [Artisan](https://github.com/artisan-roaster-scope/artisan/releases) (tested with v0.9.9)
 
 Ubuntu Linux
 
@@ -42,7 +42,7 @@ Click the "Sliders" tab and check the box for "Timer", "Temperature",  and "Fan"
     Temperature Command = "/usr/share/artisan/SR700/Roaster_Set_Temp.py {}", Offset = 50, Factor = 5.00
     Fan Command = "/usr/share/artisan/SR700/Roaster_Set_Fan.py {}", Offset = 0, Factor = 0.10
     
-**Note:** Artisan Sliders range from 0-100 so all controls are based on that scale.  Temperature scale is 20 = 150, 40 = 250, 60 = 350, 80 = 450, 100 = 550.  Also, setting the temp below/lower 20 = 150 will cause the roaster to go into colling cycle.
+**Note:** Artisan Sliders range from 0-100 so all controls are based on that scale.  Temperature scale is 20 = 150, 40 = 250, 60 = 350, 80 = 450, 100 = 550.  Also, setting the temp below/lower 20 = 150 will cause the roaster to go into cooling cycle.
 
 # Configue Artisan Alarms
 
