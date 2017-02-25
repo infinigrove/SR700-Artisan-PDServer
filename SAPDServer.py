@@ -59,24 +59,25 @@ class Roaster(object):
         return ret_state
 
 
-# Create a roaster object.
-r = Roaster()
-
-# Set logging
-#logging.basicConfig(filename="RoastControl_debug_log.log",level=logging.DEBUG)
-
-# Conenct to the roaster.
-r.roaster.auto_connect()
-
-# Wait for the roaster to be connected.
-while(r.roaster.connected is False):
-    print("Please connect your roaster...")
-    time.sleep(1)
-
-daemon = Pyro4.Daemon()                # make a Pyro daemon
-ns = Pyro4.locateNS()
-uri = daemon.register(r)
-
-print("Ready. Object uri =", uri)      # print the uri so we can use it in the client later
-ns.register("roaster.sr700", uri)
-daemon.requestLoop()                   # start the event loop of the server to wait for calls
+if __name__ == '__main__':
+    # Create a roaster object.
+    r = Roaster()
+    
+    # Set logging
+    #logging.basicConfig(filename="RoastControl_debug_log.log",level=logging.DEBUG)
+    
+    # Conenct to the roaster.
+    r.roaster.auto_connect()
+    
+    # Wait for the roaster to be connected.
+    while(r.roaster.connected is False):
+        print("Please connect your roaster...")
+        time.sleep(1)
+    
+    daemon = Pyro4.Daemon()                # make a Pyro daemon
+    ns = Pyro4.locateNS()
+    uri = daemon.register(r)
+    
+    print("Ready. Object uri =", uri)      # print the uri so we can use it in the client later
+    ns.register("roaster.sr700", uri)
+    daemon.requestLoop()                   # start the event loop of the server to wait for calls

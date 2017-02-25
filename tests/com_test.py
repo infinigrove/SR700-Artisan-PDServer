@@ -30,27 +30,25 @@ class Roaster(object):
         elif(self.roaster.get_roaster_state() == 'cooling'):
             self.roaster.idle()
 
+    def start_test(self):
+        self.roaster.auto_connect()
+        # Wait for the roaster to be connected.
+        while(self.roaster.connected is False):
+            print("Please connect your roaster...")
+            time.sleep(1)
 
-# Create a roaster object.
-r = Roaster()
+        # Set variables.
+        self.roaster.target_temp = 200
+        self.roaster.fan_speed = 9
+        self.roaster.time_remaining = 10
 
-# Set logging
-#logging.basicConfig(filename="com_test_log.log",level=logging.DEBUG)
+        time.sleep(10)
 
-# Conenct to the roaster.
-r.roaster.auto_connect()
+        # Disconnect from the roaster.
+        self.roaster.disconnect()
 
-# Wait for the roaster to be connected.
-while(r.roaster.connected is False):
-    print("Please connect your roaster...")
-    time.sleep(1)
 
-# Set variables.
-r.roaster.target_temp = 200
-r.roaster.fan_speed = 9
-r.roaster.time_remaining = 10
-
-time.sleep(10)
-
-# Disconnect from the roaster.
-r.roaster.disconnect()
+if __name__ == '__main__':
+    # Create a roaster object.
+    r = Roaster()
+    r.start_test()
