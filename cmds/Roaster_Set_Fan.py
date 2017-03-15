@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# TerminalRoastDB, released under GPLv3
+# SR700-Artisan-PDServer, released under GPLv3
 # Roaster Set Fan Speed
 import Pyro4
 import sys
