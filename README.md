@@ -56,11 +56,13 @@ Click Config->Events from the drop-down menu.  In the "Event Types" row change t
 Click the "Sliders" tab and check the box for "Timer", "Temperature",  and "Fan" and select an Action of "Call Program" for each.  Then set them up as follows:
 
 **Linux**
+
     Timer Command = "/usr/share/artisan/SR700/Roaster_Set_Time.py {}", Offset = 1, Factor = 6.00
     Temperature Command = "/usr/share/artisan/SR700/Roaster_Set_Temp.py {}", Offset = 50, Factor = 5.00
     Fan Command = "/usr/share/artisan/SR700/Roaster_Set_Fan.py {}", Offset = 0, Factor = 0.10
     
 **Windows**
+
     Timer Command = "sr700\set_time.cmd {}", Offset = 1, Factor = 6.00
     Temperature Command = "sr700\set_temp.cmd {}", Offset = 50, Factor = 5.00
     Fan Command = "sr700\set_fan.cmd {}", Offset = 0, Factor = 0.10
