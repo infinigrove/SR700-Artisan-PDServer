@@ -25,7 +25,7 @@ Make sure the Fresh Roast SR700 roaster is connected before starting the server.
 
     ./StartSAPDServer.linux.sh
     
-Start Artisan. Click Help -> Load Settings... select the sr700-artisan-Linux-settings.aset from the SR700-Artisan-PDServer/settings dir.
+Start Artisan. Click Help -> Load Settings... select the sr700-artisan-Linux-settings.aset file from the SR700-Artisan-PDServer/settings dir.
     
 **Windows**
 
@@ -40,7 +40,7 @@ Make sure the Fresh Roast SR700 roaster is connected before starting the server.
 
     ./StartSAPDServer.windows.cmd
     
-Start Artisan. Click Help -> Load Settings... select the sr700-artisan-Windows-settings.aset from the SR700-Artisan-PDServer/settings dir.
+Start Artisan. Click Help -> Load Settings... select the sr700-artisan-Windows-settings.aset file from the SR700-Artisan-PDServer/settings dir.
 
 # Manually Configure Artisan BT bean temperature
 
