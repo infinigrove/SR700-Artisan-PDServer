@@ -11,7 +11,7 @@ Please refer to OpenRoast wiki page on [installing drivers](https://github.com/R
 
 Requirements are Python3 and [Artisan](https://github.com/artisan-roaster-scope/artisan/releases) (tested with v0.9.9)
 
-Ubuntu Linux
+**Ubuntu Linux**
 
     sudo apt-get install git python3 python3-pip
     git clone https://github.com/infinigrove/SR700-Artisan-PDServer.git
@@ -23,13 +23,30 @@ The Install.linux.sh will install the commands in the Artisan directory /usr/sha
 
 Make sure the Fresh Roast SR700 roaster is connected before starting the server.
 
-    ./StartSAPDServer.sh
+    ./StartSAPDServer.linux.sh
+    
+Start Artisan. Click Help -> Load Settings... select the sr700-artisan-Linux-settings.aset from the SR700-Artisan-PDServer/settings dir.
+    
+**Windows**
 
-# Configure Artisan BT bean temperature
+    git clone https://github.com/infinigrove/SR700-Artisan-PDServer.git
+    cd SR700-Artisan-PDServer
+    pip install -r requirements.txt
+    ./Install.windows.cmd
+    
+The Install.windows.cmd will need to be run as Administrator and will install the commands in the Artisan directory C:\Program Files\Artisan\SR700 .
 
-Start Artisan, click Config->Device from the drop-down menu.  In the Device Assignment dialog box select "Program" and replace "test.py" with "/usr/share/artisan/SR700/Get_Artisan_Temp.py" and click "OK"
+Make sure the Fresh Roast SR700 roaster is connected before starting the server.
 
-# Configure Artisan Sliders
+    ./StartSAPDServer.windows.cmd
+    
+Start Artisan. Click Help -> Load Settings... select the sr700-artisan-Windows-settings.aset from the SR700-Artisan-PDServer/settings dir.
+
+# Manually Configure Artisan BT bean temperature
+
+Start Artisan, click Config->Device from the drop-down menu.  In the Device Assignment dialog box select "Program" and replace "test.py" with "/usr/share/artisan/SR700/Get_Artisan_Temp.py" for Linux or "python "C:\Program Files\Artisan\SR700\Get_Artisan_Temp.py"" for Windows then click "OK"
+
+# Manually Configure Artisan Sliders
 
 Click Config->Events from the drop-down menu.  In the "Event Types" row change the following
 
@@ -38,12 +55,22 @@ Click Config->Events from the drop-down menu.  In the "Event Types" row change t
     
 Click the "Sliders" tab and check the box for "Timer", "Temperature",  and "Fan" and select an Action of "Call Program" for each.  Then set them up as follows:
 
+**Linux**
     Timer Command = "/usr/share/artisan/SR700/Roaster_Set_Time.py {}", Offset = 1, Factor = 6.00
     Temperature Command = "/usr/share/artisan/SR700/Roaster_Set_Temp.py {}", Offset = 50, Factor = 5.00
     Fan Command = "/usr/share/artisan/SR700/Roaster_Set_Fan.py {}", Offset = 0, Factor = 0.10
+    
+**Windows**
+    Timer Command = "sr700\set_time.cmd {}", Offset = 1, Factor = 6.00
+    Temperature Command = "sr700\set_temp.cmd {}", Offset = 50, Factor = 5.00
+    Fan Command = "sr700\set_fan.cmd {}", Offset = 0, Factor = 0.10
     
 **Note:** Artisan Sliders range from 0-100 so all controls are based on that scale.  Temperature scale is 20 = 150, 40 = 250, 60 = 350, 80 = 450, 100 = 550.  Also, setting the temp below/lower 20 = 150 will cause the roaster to go into cooling cycle.
 
 # Configue Artisan Alarms
 
 (see samples in alarms dir)
+
+Command to start roaster
+Linux = "/usr/share/artisan/SR700/Roaster_charge.py"
+Windows = "sr700\start_roast.cmd"
