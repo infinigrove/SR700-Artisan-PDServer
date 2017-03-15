@@ -74,5 +74,6 @@ Click the "Sliders" tab and check the box for "Timer", "Temperature",  and "Fan"
 (see samples in alarms dir)
 
 Command to start roaster
-Linux = "/usr/share/artisan/SR700/Roaster_charge.py"
-Windows = "sr700\start_roast.cmd"
+
+    Linux = "/usr/share/artisan/SR700/Roaster_charge.py"
+    Windows = "sr700\start_roast.cmd"
