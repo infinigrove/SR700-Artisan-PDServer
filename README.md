@@ -9,7 +9,7 @@ Please refer to OpenRoast wiki page on [installing drivers](https://github.com/R
 
 # Setting Up A Development Environment
 
-Requirements are Python3 and [Artisan](https://github.com/artisan-roaster-scope/artisan/releases) (tested with v0.9.9)
+Requirements are Python3 and [Artisan](https://github.com/artisan-roaster-scope/artisan/releases) (tested with v1.0.0)
 
 **Ubuntu Linux**
 
