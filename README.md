@@ -42,6 +42,8 @@ Make sure the Fresh Roast SR700 roaster is connected before starting the server.
     
 Start Artisan. Click Help -> Load Settings... select the sr700-artisan-Windows-settings.aset file from the SR700-Artisan-PDServer/settings dir.
 
+Detailed Windows instruction video - [Fresh Roast SR700 controlled by Artisan on Windows10](https://youtu.be/3Usqqbwv3i8)
+
 # Manually Configure Artisan BT bean temperature
 
 Start Artisan, click Config->Device from the drop-down menu.  In the Device Assignment dialog box select "Program" and replace "test.py" with "/usr/share/artisan/SR700/Get_Artisan_Temp.py" for Linux or "python "C:\Program Files\Artisan\SR700\Get_Artisan_Temp.py"" for Windows then click "OK"
@@ -73,7 +75,15 @@ Click the "Sliders" tab and check the box for "Timer", "Temperature",  and "Fan"
 
 (see samples in alarms dir)
 
+To use the included Alarm sets:
+
+    Click "ON" to display sliders and temperature
+    Click "START" to send inital time, temperature, and fan speed
+    Wait 5 to 10 seconds to make sure initial settings are sent to the roaster
+    Click "CHARGE" to start roasting
+
 Command to start roaster
 
     Linux = "/usr/share/artisan/SR700/Roaster_charge.py"
     Windows = "sr700\start_roast.cmd"
+    
