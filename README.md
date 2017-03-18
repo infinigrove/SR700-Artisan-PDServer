@@ -87,3 +87,4 @@ Command to start roaster
     Linux = "/usr/share/artisan/SR700/Roaster_charge.py"
     Windows = "sr700\start_roast.cmd"
     
+[More on configuring Artisan alarms](https://artisan-roasterscope.blogspot.com/2013/03/alarms.html)
