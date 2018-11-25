@@ -5,11 +5,11 @@ This allows for connection of Fresh Roast SR700 coffee roaster with Artisan roas
 
 # Drivers
 
-Please refer to OpenRoast wiki page on [installing drivers](https://github.com/Roastero/Openroast/wiki/Installing-Drivers) to ensure you have the appropriate drivers installed.
+USB Drivers are automatically installed for Linux.  For Windows please refer to OpenRoast Software and Driver installation page (https://github.com/Roastero/Openroast/blob/master/docs/wiki/users_installing_windows.md) to ensure you have the appropriate USB drivers installed.
 
 # Setting Up A Development Environment
 
-Requirements are Python3 and [Artisan](https://github.com/artisan-roaster-scope/artisan/releases) (tested with v1.0.0)
+Requirements are Python3 and [Artisan](https://github.com/artisan-roaster-scope/artisan/releases) (tested with v1.5.0)
 
 **Ubuntu Linux**
 
@@ -52,24 +52,25 @@ Start Artisan, click Config->Device from the drop-down menu.  In the Device Assi
 
 Click Config->Events from the drop-down menu.  In the "Event Types" row change the following
 
-    1 "Speed" to "Timer"
-    2 "Power" to "Temperature"
+    1 "Air" to "Timer"
+    2 "Drum" to "Fan"
+    4 "Burner" to "Temp"
     
-Click the "Sliders" tab and check the box for "Timer", "Temperature",  and "Fan" and select an Action of "Call Program" for each.  Then set them up as follows:
+Click the "Sliders" tab and check the box for "Timer", "Fan",  and "Temp" and select an Action of "Call Program" for each.  Then set them up as follows:
 
 **Linux**
 
-    Timer Command = "/usr/share/artisan/SR700/Roaster_Set_Time.py {}", Offset = 1, Factor = 6.00
-    Temperature Command = "/usr/share/artisan/SR700/Roaster_Set_Temp.py {}", Offset = 50, Factor = 5.00
-    Fan Command = "/usr/share/artisan/SR700/Roaster_Set_Fan.py {}", Offset = 0, Factor = 0.10
+    Timer Command = "/usr/share/artisan/SR700/Roaster_Set_Time.py {}", Offset = 1, Factor = 6.00, Min = 0, Max = 100
+    Fan Command = "/usr/share/artisan/SR700/Roaster_Set_Fan.py {}", Offset = 0, Factor = 1.00, Min = 1, Max = 9
+    Temp Command = "/usr/share/artisan/SR700/Roaster_Set_Temp.py {}", Offset = 0, Factor = 1.00, Min = 120, Max = 550
     
 **Windows**
 
-    Timer Command = "sr700\set_time.cmd {}", Offset = 1, Factor = 6.00
-    Temperature Command = "sr700\set_temp.cmd {}", Offset = 50, Factor = 5.00
-    Fan Command = "sr700\set_fan.cmd {}", Offset = 0, Factor = 0.10
+    Timer Command = "sr700\set_time.cmd {}", Offset = 1, Factor = 6.00, Min = 0, Max = 100
+    Fan Command = "sr700\set_fan.cmd {}", Offset = 0, Factor = 1.00, Min = 1, Max = 9
+    Temp Command = "sr700\set_temp.cmd {}", Offset = 0, Factor = 1.00, Min = 120, Max = 550
     
-**Note:** Artisan Sliders range from 0-100 so all controls are based on that scale.  Temperature scale is 20 = 150, 40 = 250, 60 = 350, 80 = 450, 100 = 550.  Also, setting the temp below/lower 20 = 150 will cause the roaster to go into cooling cycle.
+**Note:** Setting the temp below/lower than 150 will cause the roaster to go into cooling cycle.
 
 # Configue Artisan Alarms
 
@@ -79,7 +80,7 @@ To use the included Alarm sets:
 
     Click "ON" to display sliders and temperature
     Click "START" to send inital time, temperature, and fan speed
-    Wait 5 to 10 seconds to make sure initial settings are sent to the roaster
+    Wait 10+ seconds to make sure initial settings are sent to the roaster (May take 30+ seconds for Windows)
     Click "CHARGE" to start roasting
 
 Command to start roaster
@@ -88,5 +89,3 @@ Command to start roaster
     Windows = "sr700\start_roast.cmd"
     
 [More on configuring Artisan alarms](https://artisan-roasterscope.blogspot.com/2013/03/alarms.html)
-
-Changes coming
